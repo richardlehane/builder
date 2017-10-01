@@ -10,10 +10,8 @@ before_install:
   - git clone https://github.com/exponential-decay/skeleton-test-suite-generator.git $HOME/skeleton-test-suite-generator
 script:
   - roy harvest -home .
-  - mkdir -p $HOME/pronom-export/{fmt,x-fmt}
-  - cp pronom/fmt* $HOME/pronom-export/fmt/
-  - cp pronom/x-fmt* $HOME/pronom-export/x-fmt/
-  - ls $HOME/pronom-export/fmt
-  - ls $HOME/pronom-export/x-fmt
-  - cd $HOME
-  - python skeleton-test-suite-generator/skeletongenerator.py
+  - mkdir -p $HOME/skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
+  - cp pronom/fmt* $HOME/skeleton-test-suite-generator/pronom-export/fmt/
+  - cp pronom/x-fmt* $HOME/skeleton-test-suite-generator/pronom-export/x-fmt/
+  - cd $HOME/skeleton-test-suite-generator
+  - python skeletongenerator.py
