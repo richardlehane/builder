@@ -14,20 +14,25 @@ before_install:
 - git clone https://github.com/exponential-decay/skeleton-test-suite-generator.git $HOME/skeleton-test-suite-generator
 - git clone https://github.com/exponential-decay/skeleton-container-test-suite-generator.git $HOME/skeleton-container-test-suite-generator
 script:
-#  - roy harvest -home .
-#  - mkdir -p $HOME/skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
-#  - cp pronom/fmt* $HOME/skeleton-test-suite-generator/pronom-export/fmt/
-#  - cp pronom/x-fmt* $HOME/skeleton-test-suite-generator/pronom-export/x-fmt/
-#  - cd $HOME/skeleton-test-suite-generator
-#  - python skeletongenerator.py
+- roy harvest -home .
 - mkdir -p $HOME/output/skeleton-suite/containers
 - cp $TRAVIS_BUILD_DIR/$CONTAINER $HOME/output/
 - cp $TRAVIS_BUILD_DIR/$DROID $HOME/output/
+- cp -rf pronom $HOME/output/
+- mkdir -p $HOME/skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
+- cp pronom/fmt* $HOME/skeleton-test-suite-generator/pronom-export/fmt/
+- cp pronom/x-fmt* $HOME/skeleton-test-suite-generator/pronom-export/x-fmt/
+- cd $HOME/skeleton-test-suite-generator
+- python skeletongenerator.py
+- cd skeleton-suite
+- cp -rf fmt $HOME/output/skeleton-suite/
+- cp -rf x-fmt $HOME/output/skeleton-suite/
 - cd $HOME/skeleton-container-test-suite-generator
 - jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
 - cp skeleton-container-suite/zip/* $HOME/output/skeleton-suite/containers/
 - cp skeleton-container-suite/ole2/* $HOME/output/skeleton-suite/containers/
-- zip -r $HOME/pronom.zip $HOME/output/* 
+- cd $HOME/output
+- zip -r $HOME/pronom.zip . 
 - cd $TRAVIS_BUILD_DIR
 deploy:
   provider: releases
