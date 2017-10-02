@@ -20,11 +20,13 @@ script:
 #  - cp pronom/x-fmt* $HOME/skeleton-test-suite-generator/pronom-export/x-fmt/
 #  - cd $HOME/skeleton-test-suite-generator
 #  - python skeletongenerator.py
+- mkdir $HOME/output
+- cp $TRAVIS_BUILD_DIR/$CONTAINER $HOME/output/
+- cp $TRAVIS_BUILD_DIR/$DROID $HOME/output/
 - cd $HOME/skeleton-container-test-suite-generator
 - jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
-- ls .
-- cd $HOME
-- zip -r pronom.zip $TRAVIS_BUILD_DIR/$CONTAINER $TRAVIS_BUILD_DIR/$DROID $HOME/skeleton-container-test-suite-generator/skeleton-container-suite
+- cp skeleton-container-suite $HOME/output/
+- zip -r $HOME/pronom.zip $HOME/output/ 
 - cd $TRAVIS_BUILD_DIR
 deploy:
   provider: releases
@@ -33,4 +35,4 @@ deploy:
   file: $HOME/pronom.zip
   on:
     repo: richardlehane/builder
-    tags: false
+    tags: true
