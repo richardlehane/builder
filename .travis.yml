@@ -9,11 +9,10 @@ before_install:
   - export POI='3.17'
   - export POI_URL="http://www-us.apache.org/dist/poi/release/bin/poi-bin-$POI-20170915.tar.gz"
   - wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython; export PATH=$HOME/jython/bin:$PATH
-  - ls $HOME/jython/bin
   - wget $POI_URL -O poi.tar.gz; tar -xvf poi.tar.gz
-  - export CLASSPATH=$TRAVIS_BUILD_DIR/$POI/$POI.jar:$CLASSPATH
+  - export CLASSPATH=$TRAVIS_BUILD_DIR/poi-$POI/$POI.jar
   - echo $CLASSPATH
-  - ls $TRAVIS_BUILD_DIR/$POI
+  - ls $TRAVIS_BUILD_DIR/poi-$POI
 #  - wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
 #  - echo "deb http://dl.bintray.com/siegfried/debian wheezy main" | sudo tee -a /etc/apt/sources.list
 #  - sudo apt-get update && sudo apt-get install siegfried
