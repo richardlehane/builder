@@ -25,10 +25,12 @@ script:
 - ls .
 - cd $HOME
 - zip -r pronom.zip $TRAVIS_BUILD_DIR/$CONTAINER $TRAVIS_BUILD_DIR/$DROID $HOME/skeleton-container-test-suite-generator/skeleton-container-suite
+- cd $TRAVIS_BUILD_DIR
 deploy:
   provider: releases
   api_key:
     secure: jOexCtQ5J+lmRq2xrazDPUu7M4IiRG/c+4g05eRol8iEC3wbPEZuufpN4oW/eN1Mdrjqw8YNr46jZ3ZOJoCIV8JpDhGMhDI6nQpyyzztgjWmEEDTEOjnSs+ZGaUq8mtggSA6vf0001245mitaPdizQaTLQGXDcuo3nihLFRDOSCowenK8uRaw/NK1VwTTpkeeTErSh1iE9RKi55xAWIKZQqkEYpwO+3MEO3rADuiOgqSWvdxziMTSHHThZsUcUJhifG7WlOjXCV+fYJi4QpXbWkbP8fhbXxgTLghbhWKqgFI5kNQVXZn7FzeBAalcUPwJ/iC6Vx/ae8ePMvnXbr08kbaZbA0G+l64a9J4XrnhXBFMhixErpLofJqDuMNfNs0lAMtCxQ8ioxZ4YdIPsIu6Hgv2UzfCL6iTRsfhF9nO+TrXEwVMcYcynB2jNaGVrgNBFRV5mltixQWrj4X4YYVrhskev7MM5AKX2Ey8AyAWI/a9Bd+DgHmvxUgw7xB0eqKkwO4JeyFXziW9Whifjwz/KaPnkXbq0rowNiFruquZxflb/U0Od/kQZUV73PGqQuO/7l6e2zJCNKeI9WGHH+9lXwGchkQgY5vugn27dnqPRCR+NNN8L+bnjXiPqUrZx9Cu28o2IOipcInosmQKfaymVbBqMkt4VE/XWfyy43tGHo=
   file: $HOME/pronom.zip
   on:
-    tags: true
+    repo: richardlehane/builder
+    tags: false
