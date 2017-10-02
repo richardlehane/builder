@@ -1,18 +1,14 @@
 sudo: required
 before_install:
   - export CONTAINER=$(find container* -type f -printf "%f")
-  - echo $CONTAINER
   - export DROID=$(find DROID* -type f -printf "%f")
-  - echo $DROID
-  - echo $TRAVIS_BUILD_DIR
   - export JYTHON_URL='http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
   - export POI='3.17'
   - export POI_URL="http://www-us.apache.org/dist/poi/release/bin/poi-bin-$POI-20170915.tar.gz"
   - wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython; export PATH=$HOME/jython/bin:$PATH
   - wget $POI_URL -O poi.tar.gz; tar -xvf poi.tar.gz
-  - export CLASSPATH=$TRAVIS_BUILD_DIR/poi-$POI/$POI.jar
+  - export CLASSPATH=$TRAVIS_BUILD_DIR/poi-$POI/poi-$POI.jar
   - echo $CLASSPATH
-  - ls $TRAVIS_BUILD_DIR/poi-$POI
 #  - wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
 #  - echo "deb http://dl.bintray.com/siegfried/debian wheezy main" | sudo tee -a /etc/apt/sources.list
 #  - sudo apt-get update && sudo apt-get install siegfried
@@ -26,5 +22,4 @@ script:
 #  - cd $HOME/skeleton-test-suite-generator
 #  - python skeletongenerator.py
   - cd $HOME/skeleton-container-test-suite-generator
-  - echo $PATH
   - jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
