@@ -25,7 +25,7 @@ script:
 - cp $TRAVIS_BUILD_DIR/$DROID $HOME/output/
 - cd $HOME/skeleton-container-test-suite-generator
 - jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
-- cp skeleton-container-suite $HOME/output/
+- cp -r skeleton-container-suite $HOME/output/
 - zip -r $HOME/pronom.zip $HOME/output/ 
 - cd $TRAVIS_BUILD_DIR
 deploy:
