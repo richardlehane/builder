@@ -1,19 +1,18 @@
 sudo: required
 before_install:
-  - export CONTAINER=$(find container* -type f -printf "%f")
-  - export DROID=$(find DROID* -type f -printf "%f")
-  - export JYTHON_URL='http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
-  - export POI='3.17'
-  - export POI_URL="http://www-us.apache.org/dist/poi/release/bin/poi-bin-$POI-20170915.tar.gz"
-  - wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython; export PATH=$HOME/jython/bin:$PATH
-  - wget $POI_URL -O poi.tar.gz; tar -xvf poi.tar.gz
-  - export CLASSPATH=$TRAVIS_BUILD_DIR/poi-$POI/poi-$POI.jar
-  - echo $CLASSPATH
-#  - wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
-#  - echo "deb http://dl.bintray.com/siegfried/debian wheezy main" | sudo tee -a /etc/apt/sources.list
-#  - sudo apt-get update && sudo apt-get install siegfried
-  - git clone https://github.com/exponential-decay/skeleton-test-suite-generator.git $HOME/skeleton-test-suite-generator
-  - git clone https://github.com/exponential-decay/skeleton-container-test-suite-generator.git $HOME/skeleton-container-test-suite-generator
+- export CONTAINER=$(find container* -type f -printf "%f")
+- export DROID=$(find DROID* -type f -printf "%f")
+- export JYTHON_URL='http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
+- wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython; export PATH=$HOME/jython/bin:$PATH
+- export POI='3.17'
+- export POI_URL="http://www-us.apache.org/dist/poi/release/bin/poi-bin-$POI-20170915.tar.gz"
+- wget $POI_URL -O poi.tar.gz; tar -xvf poi.tar.gz
+- export CLASSPATH=$TRAVIS_BUILD_DIR/poi-$POI/poi-$POI.jar
+- wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
+- echo "deb http://dl.bintray.com/siegfried/debian wheezy main" | sudo tee -a /etc/apt/sources.list
+- sudo apt-get update && sudo apt-get install siegfried
+- git clone https://github.com/exponential-decay/skeleton-test-suite-generator.git $HOME/skeleton-test-suite-generator
+- git clone https://github.com/exponential-decay/skeleton-container-test-suite-generator.git $HOME/skeleton-container-test-suite-generator
 script:
 #  - roy harvest -home .
 #  - mkdir -p $HOME/skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
@@ -21,5 +20,15 @@ script:
 #  - cp pronom/x-fmt* $HOME/skeleton-test-suite-generator/pronom-export/x-fmt/
 #  - cd $HOME/skeleton-test-suite-generator
 #  - python skeletongenerator.py
-  - cd $HOME/skeleton-container-test-suite-generator
-  - jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
+- cd $HOME/skeleton-container-test-suite-generator
+- jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
+- ls .
+- cd $HOME
+- zip -r pronom.zip $TRAVIS_BUILD_DIR/$CONTAINER $TRAVIS_BUILD_DIR/$DROID
+deploy:
+  provider: releases
+  api_key:
+    secure: jOexCtQ5J+lmRq2xrazDPUu7M4IiRG/c+4g05eRol8iEC3wbPEZuufpN4oW/eN1Mdrjqw8YNr46jZ3ZOJoCIV8JpDhGMhDI6nQpyyzztgjWmEEDTEOjnSs+ZGaUq8mtggSA6vf0001245mitaPdizQaTLQGXDcuo3nihLFRDOSCowenK8uRaw/NK1VwTTpkeeTErSh1iE9RKi55xAWIKZQqkEYpwO+3MEO3rADuiOgqSWvdxziMTSHHThZsUcUJhifG7WlOjXCV+fYJi4QpXbWkbP8fhbXxgTLghbhWKqgFI5kNQVXZn7FzeBAalcUPwJ/iC6Vx/ae8ePMvnXbr08kbaZbA0G+l64a9J4XrnhXBFMhixErpLofJqDuMNfNs0lAMtCxQ8ioxZ4YdIPsIu6Hgv2UzfCL6iTRsfhF9nO+TrXEwVMcYcynB2jNaGVrgNBFRV5mltixQWrj4X4YYVrhskev7MM5AKX2Ey8AyAWI/a9Bd+DgHmvxUgw7xB0eqKkwO4JeyFXziW9Whifjwz/KaPnkXbq0rowNiFruquZxflb/U0Od/kQZUV73PGqQuO/7l6e2zJCNKeI9WGHH+9lXwGchkQgY5vugn27dnqPRCR+NNN8L+bnjXiPqUrZx9Cu28o2IOipcInosmQKfaymVbBqMkt4VE/XWfyy43tGHo=
+  file: $HOME/pronom.zip
+  on:
+    repo: richardlehane/builder
