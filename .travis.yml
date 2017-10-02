@@ -25,6 +25,7 @@ script:
 - ls .
 - cd $HOME
 - zip -r pronom.zip $TRAVIS_BUILD_DIR/$CONTAINER $TRAVIS_BUILD_DIR/$DROID
+- cd $TRAVIS_BUILD_DIR
 deploy:
   provider: releases
   api_key:
@@ -32,3 +33,4 @@ deploy:
   file: $HOME/pronom.zip
   on:
     repo: richardlehane/builder
+    tags: true
