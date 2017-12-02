@@ -13,3 +13,7 @@ Make sure follow tags is configured with `git config --global push.followTags tr
 - tag e.g. `git tag -a v91 -m "PRONOM v91"`
 - then push to master.
 
+
+## Changes
+
+- v93 retry 2/12
