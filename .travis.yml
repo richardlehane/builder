@@ -4,8 +4,8 @@ before_install:
 - export DROID=$(find DROID* -type f -printf "%f")
 - export JYTHON_URL='http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
 - wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython; export PATH=$HOME/jython/bin:$PATH
-- export POI='3.17'
-- export POI_URL="http://www-us.apache.org/dist/poi/release/bin/poi-bin-$POI-20170915.tar.gz"
+- export POI='4.0.0'
+- export POI_URL="https://www.apache.org/dyn/closer.lua/poi/release/bin/poi-bin-$POI-20180907.tar.gz"
 - wget $POI_URL -O poi.tar.gz; tar -xvf poi.tar.gz
 - export CLASSPATH=$TRAVIS_BUILD_DIR/poi-$POI/poi-$POI.jar
 - wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
