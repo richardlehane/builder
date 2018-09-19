@@ -27,10 +27,10 @@ script:
 - cd skeleton-suite
 - cp -rf fmt $HOME/output/skeleton-suite/
 - cp -rf x-fmt $HOME/output/skeleton-suite/
-- cd $HOME/skeleton-container-test-suite-generator
-- jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
-- cp skeleton-container-suite/zip/* $HOME/output/skeleton-suite/containers/
-- cp skeleton-container-suite/ole2/* $HOME/output/skeleton-suite/containers/
+#- cd $HOME/skeleton-container-test-suite-generator
+#- jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
+#- cp skeleton-container-suite/zip/* $HOME/output/skeleton-suite/containers/
+#- cp skeleton-container-suite/ole2/* $HOME/output/skeleton-suite/containers/
 - cd $HOME/output
 - zip -r $HOME/pronom.zip . 
 - cd $TRAVIS_BUILD_DIR
