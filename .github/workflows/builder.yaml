@@ -1,7 +1,7 @@
 name: Builder
 on: [push]
 jobs:
-  Build skeleton suite:
+  Build-skeleton-suite:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
