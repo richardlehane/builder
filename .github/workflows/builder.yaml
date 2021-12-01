@@ -15,8 +15,8 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: export CONTAINER=$(find container* -type f -printf "%f")
-      - run: echo $CONTAINER
+      - run: echo "CONTAINER=$(find container* -type f -printf "%f")" >> $GITHUB_ENV
+      - run: echo ${{ env.CONTAINER }}
       - run: export DROID=$(find DROID* -type f -printf "%f")
       - run: export JYTHON_URL='http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
       - run: wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython; export PATH=$HOME/jython/bin:$PATH
