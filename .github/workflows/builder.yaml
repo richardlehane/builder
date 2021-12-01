@@ -29,11 +29,10 @@ jobs:
       - run: mkdir -p skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
       - run: cp pronom/fmt* skeleton-test-suite-generator/pronom-export/fmt/
       - run: cp pronom/x-fmt* skeleton-test-suite-generator/pronom-export/x-fmt/
-      - run: ls skeleton-test-suite-generator/pronom-export/fmt/
-      - run: python skeleton-test-suite-generator/skeletongenerator.py 
+      - run: ( cd skeleton-test-suite-generator && python skeletongenerator.py ) 
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/fmt output/skeleton-suite/
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/skeleton-suite/x-fmt output/skeleton-suite/
-      - run: jython -Dpython.path=$poi-3.17/poi-3.17.jar skeleton-container-test-suite-generator/skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }}
+      - run: ( cd skeleton-container-test-suite-generator && jython -Dpython.path=$poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }} )
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/zip/* output/skeleton-suite/containers/
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/ole2/* output/skeleton-suite/containers/
       - run: zip -r pronom.zip output/ 
