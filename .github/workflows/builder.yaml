@@ -6,16 +6,16 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: List files in the repository
-        run: ls ${{ github.workspace }}
       - run: echo "CONTAINER=$(find container* -type f -printf "%f")" >> $GITHUB_ENV
       - run: echo "DROID=$(find DROID* -type f -printf "%f")" >> $GITHUB_ENV
       - name: Install Jython
         run: wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython; export PATH=$HOME/jython/bin:$PATH
-        env: JYTHON_URL='http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
+        env: 
+          JYTHON_URL: 'http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
       - name: Install POI
         run: wget $URL -O poi.tar.gz; tar -xvf poi.tar.gz
-        env: URL="https://archive.apache.org/dist/poi/release/bin/poi-bin-3.17-20170915.tar.gz"
+        env: 
+          URL: "https://archive.apache.org/dist/poi/release/bin/poi-bin-3.17-20170915.tar.gz"
       - run: export CLASSPATH=$GITHUB_WORKSPACE/poi-$POI/poi-$POI.jar
       - run: wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
       - run: echo "deb http://dl.bintray.com/siegfried/debian wheezy main" | sudo tee -a /etc/apt/sources.list
