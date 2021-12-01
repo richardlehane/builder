@@ -24,7 +24,7 @@ jobs:
       - run: roy harvest -home .
       - run: mkdir -p output/skeleton-suite/containers
       - run: cp ${{ env.CONTAINER }} output/
-      - run: cp ${{ env.$DROID }} output/
+      - run: cp ${{ env.DROID }} output/
       - run: cp -rf pronom output/
       - run: mkdir -p skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
       - run: cp pronom/fmt* skeleton-test-suite-generator/pronom-export/fmt/
@@ -32,7 +32,8 @@ jobs:
       - run: python skeleton-test-suite-generator/skeletongenerator.py 
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/fmt output/skeleton-suite/
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/skeleton-suite/x-fmt output/skeleton-suite/
-      - run: jython -Dpython.path=$poi-3.17/poi-3.17.jar skeleton-container-test-suite-generator/skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.$DROID }}
+      - run: jython -Dpython.path=$poi-3.17/poi-3.17.jar skeleton-container-test-suite-generator/skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }}
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/zip/* output/skeleton-suite/containers/
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/ole2/* output/skeleton-suite/containers/
       - run: zip -r pronom.zip output/ 
+      - run: zip -sf pronom.zip
