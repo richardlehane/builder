@@ -1,7 +1,7 @@
 name: Builder
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Build skeleton suite:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -19,24 +19,20 @@ jobs:
       - run: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 20F802FE798E6857
       - run: sudo add-apt-repository "deb https://www.itforarchivists.com/ buster main"
       - run: sudo apt-get update && sudo apt-get install siegfried
-      - run: git clone https://github.com/exponential-decay/skeleton-test-suite-generator.git $HOME/skeleton-test-suite-generator
-      - run: git clone https://github.com/exponential-decay/skeleton-container-test-suite-generator.git $HOME/skeleton-container-test-suite-generator
+      - run: git clone https://github.com/exponential-decay/skeleton-test-suite-generator.git
+      - run: git clone https://github.com/exponential-decay/skeleton-container-test-suite-generator.git
       - run: roy harvest -home .
-      - run: mkdir -p $HOME/output/skeleton-suite/containers
-      - run: cp $GITHUB_WORKSPACE/$CONTAINER $HOME/output/
-      - run: cp $GITHUB_WORKSPACE/$DROID $HOME/output/
-      - run: cp -rf pronom $HOME/output/
-      - run: mkdir -p $HOME/skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
-      - run: cp pronom/fmt* $HOME/skeleton-test-suite-generator/pronom-export/fmt/
-      - run: cp pronom/x-fmt* $HOME/skeleton-test-suite-generator/pronom-export/x-fmt/
-      - run: cd $HOME/skeleton-test-suite-generator
-      - run: python skeletongenerator.py
-      - run: cd skeleton-suite
-      - run: cp -rf fmt $HOME/output/skeleton-suite/
-      - run: cp -rf x-fmt $HOME/output/skeleton-suite/
-      - run: cd $HOME/skeleton-container-test-suite-generator
-      - run: jython -Dpython.path=$poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
-      - run: cp skeleton-container-suite/zip/* $HOME/output/skeleton-suite/containers/
-      - run: cp skeleton-container-suite/ole2/* $HOME/output/skeleton-suite/containers/
-      - run: cd $HOME/output
-      - run: zip -r $HOME/pronom.zip . 
+      - run: mkdir -p output/skeleton-suite/containers
+      - run: cp ${{ env.CONTAINER }} output/
+      - run: cp ${{ env.$DROID }} output/
+      - run: cp -rf pronom output/
+      - run: mkdir -p skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
+      - run: cp pronom/fmt* skeleton-test-suite-generator/pronom-export/fmt/
+      - run: cp pronom/x-fmt* skeleton-test-suite-generator/pronom-export/x-fmt/
+      - run: python skeleton-test-suite-generator/skeletongenerator.py 
+      - run: cp -rf skeleton-test-suite-generator/skeleton-suite/fmt output/skeleton-suite/
+      - run: cp -rf skeleton-test-suite-generator/skeleton-suite/skeleton-suite/x-fmt output/skeleton-suite/
+      - run: jython -Dpython.path=$poi-3.17/poi-3.17.jar skeleton-container-test-suite-generator/skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.$DROID }}
+      - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/zip/* output/skeleton-suite/containers/
+      - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/ole2/* output/skeleton-suite/containers/
+      - run: zip -r pronom.zip output/ 
