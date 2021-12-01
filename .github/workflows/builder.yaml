@@ -16,9 +16,8 @@ jobs:
         run: wget $URL -O poi.tar.gz; tar -xvf poi.tar.gz
         env: 
           URL: "https://archive.apache.org/dist/poi/release/bin/poi-bin-3.17-20170915.tar.gz"
-      - run: export CLASSPATH=$GITHUB_WORKSPACE/poi-$POI/poi-$POI.jar
-      - run: wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
-      - run: echo "deb http://dl.bintray.com/siegfried/debian wheezy main" | sudo tee -a /etc/apt/sources.list
+      - run: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 20F802FE798E6857
+      - run: sudo add-apt-repository "deb https://www.itforarchivists.com/ buster main"
       - run: sudo apt-get update && sudo apt-get install siegfried
       - run: git clone https://github.com/exponential-decay/skeleton-test-suite-generator.git $HOME/skeleton-test-suite-generator
       - run: git clone https://github.com/exponential-decay/skeleton-container-test-suite-generator.git $HOME/skeleton-container-test-suite-generator
@@ -36,7 +35,7 @@ jobs:
       - run: cp -rf fmt $HOME/output/skeleton-suite/
       - run: cp -rf x-fmt $HOME/output/skeleton-suite/
       - run: cd $HOME/skeleton-container-test-suite-generator
-      - run: jython -Dpython.path=$CLASSPATH skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
+      - run: jython -Dpython.path=$poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con $TRAVIS_BUILD_DIR/$CONTAINER --sig $TRAVIS_BUILD_DIR/$DROID
       - run: cp skeleton-container-suite/zip/* $HOME/output/skeleton-suite/containers/
       - run: cp skeleton-container-suite/ole2/* $HOME/output/skeleton-suite/containers/
       - run: cd $HOME/output
