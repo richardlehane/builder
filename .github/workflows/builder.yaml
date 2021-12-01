@@ -29,6 +29,7 @@ jobs:
       - run: mkdir -p skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
       - run: cp pronom/fmt* skeleton-test-suite-generator/pronom-export/fmt/
       - run: cp pronom/x-fmt* skeleton-test-suite-generator/pronom-export/x-fmt/
+      - run: ls skeleton-test-suite-generator/pronom-export/fmt/
       - run: python skeleton-test-suite-generator/skeletongenerator.py 
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/fmt output/skeleton-suite/
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/skeleton-suite/x-fmt output/skeleton-suite/
