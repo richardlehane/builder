@@ -13,7 +13,7 @@ jobs:
         env: 
           JYTHON_URL: 'http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
       - name: Install POI
-        run: wget $URL -O poi.tar.gz; tar -xvf poi.tar.gz
+        run: wget $URL -O poi.tar.gz; tar -xvf poi.tar.gz -C $HOME
         env: 
           URL: "https://archive.apache.org/dist/poi/release/bin/poi-bin-3.17-20170915.tar.gz"
       - run: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 20F802FE798E6857
@@ -33,7 +33,7 @@ jobs:
       - run: ( cd skeleton-test-suite-generator && python2 skeletongenerator.py ) 
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/fmt output/skeleton-suite/
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/x-fmt output/skeleton-suite/
-      - run: ( cd skeleton-container-test-suite-generator && $HOME/jython/bin/jython -Dpython.path=/home/runner/poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }} )
+      - run: ( cd skeleton-container-test-suite-generator && $HOME/jython/bin/jython -Dpython.path=$HOME/poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }} )
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/zip/* output/skeleton-suite/containers/
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/ole2/* output/skeleton-suite/containers/
       - run: zip -r pronom.zip output/ 
