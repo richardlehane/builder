@@ -42,7 +42,7 @@ jobs:
       - run: ( cd skeleton-container-test-suite-generator && $HOME/jython/bin/jython -Dpython.path=$HOME/poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }} )
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/zip/* output/skeleton-suite/containers/
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/ole2/* output/skeleton-suite/containers/
-      - run: (cd output && zip -r $HOME/pronom.zip .) 
+      - run: (cd output && zip -r ../pronom.zip .) 
       - run: zip -sf pronom.zip
       - name: Create Release
         id: create_release
