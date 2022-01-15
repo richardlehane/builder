@@ -1,5 +1,8 @@
 name: Builder
-on: [push]
+on: 
+  tags:
+    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
 jobs:
   Build-skeleton-suite:
     runs-on: ubuntu-latest
@@ -38,5 +41,24 @@ jobs:
       - run: ( cd skeleton-container-test-suite-generator && $HOME/jython/bin/jython -Dpython.path=$HOME/poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }} )
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/zip/* output/skeleton-suite/containers/
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/ole2/* output/skeleton-suite/containers/
-      - run: zip -r pronom.zip output/ 
+      - run: zip -r pronom.zip output/* 
       - run: zip -sf pronom.zip
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./pronom.zip
+          asset_name: pronom.zip
+          asset_content_type: application/zip
