@@ -33,6 +33,8 @@ jobs:
       - run: ( cd skeleton-test-suite-generator && python2 skeletongenerator.py ) 
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/fmt output/skeleton-suite/
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/x-fmt output/skeleton-suite/
+      - run: cp ${{ env.CONTAINER }} skeleton-container-test-suite-generator/
+      - run: cp ${{ env.DROID }} skeleton-container-test-suite-generator/
       - run: ( cd skeleton-container-test-suite-generator && $HOME/jython/bin/jython -Dpython.path=$HOME/poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }} )
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/zip/* output/skeleton-suite/containers/
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/ole2/* output/skeleton-suite/containers/
