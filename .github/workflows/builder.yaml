@@ -9,7 +9,7 @@ jobs:
       - run: echo "CONTAINER=$(find container* -type f -printf "%f")" >> $GITHUB_ENV
       - run: echo "DROID=$(find DROID* -type f -printf "%f")" >> $GITHUB_ENV
       - name: Install Jython
-        run: wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython; export PATH=$HOME/jython/bin:$PATH
+        run: wget $JYTHON_URL -O jython_installer.jar; java -jar jython_installer.jar -s -d $HOME/jython
         env: 
           JYTHON_URL: 'http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.0/jython-installer-2.7.0.jar'
       - name: Install POI
@@ -33,7 +33,7 @@ jobs:
       - run: ( cd skeleton-test-suite-generator && python2 skeletongenerator.py ) 
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/fmt output/skeleton-suite/
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/x-fmt output/skeleton-suite/
-      - run: ( cd skeleton-container-test-suite-generator && jython -Dpython.path=$HOME/poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }} )
+      - run: ( cd skeleton-container-test-suite-generator && $HOME/jython/bin/jython -Dpython.path=$HOME/poi-3.17/poi-3.17.jar skeletoncontainergenerator.py --con ${{ env.CONTAINER }} --sig ${{ env.DROID }} )
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/zip/* output/skeleton-suite/containers/
       - run: cp skeleton-container-test-suite-generator/skeleton-container-suite/ole2/* output/skeleton-suite/containers/
       - run: zip -r pronom.zip output/ 
