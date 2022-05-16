@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 
-<ContainerSignatureMapping schemaVersion="1.0" signatureVersion="27">
+<ContainerSignatureMapping schemaVersion="1.0" signatureVersion="29">
   <ContainerSignatures>
     <ContainerSignature Id="1000" ContainerType="OLE2">
       <Description>Microsoft Word 6.0/95 OLE2</Description>
@@ -5910,7 +5910,92 @@
         </File>
              </Files>
         </ContainerSignature>
+
+         <ContainerSignature Id="59000" ContainerType="OLE2">
+            <Description>Roxio Label Creator Project File v4-5</Description>
+            <Files>
+		 <File>
+		    <Path>Contents</Path>
+                    <BinarySignatures>
+                        <InternalSignatureCollection>
+	                        <InternalSignature ID="59000">
+	                            <ByteSequence Reference="BOFoffset">
+	                                <SubSequence Position="1" SubSeqMinOffset="0" SubSeqMaxOffset="0">
+	                                    <Sequence>41 4A 43 44 20</Sequence>
+	                                </SubSequence>
+	                            </ByteSequence>
+	                        </InternalSignature>
+	                    </InternalSignatureCollection>
+                    </BinarySignatures>
+                </File>
+            </Files>
+        </ContainerSignature>
+
+         <ContainerSignature Id="59010" ContainerType="OLE2">
+            <Description>Roxio Label Creator Project File v6-7</Description>
+            <Files>
+		 <File>
+		    <Path>Contents</Path>
+                    <BinarySignatures>
+                        <InternalSignatureCollection>
+	                        <InternalSignature ID="59010">
+	                            <ByteSequence Reference="BOFoffset">
+	                                <SubSequence Position="1" SubSeqMinOffset="0" SubSeqMaxOffset="0">
+	                                    <Sequence>52 4F 58 49 20</Sequence>
+	                                </SubSequence>
+	                            </ByteSequence>
+	                        </InternalSignature>
+	                    </InternalSignatureCollection>
+                    </BinarySignatures>
+                </File>
+            </Files>
+        </ContainerSignature>
+		<ContainerSignature Id="60000" ContainerType="OLE2">
+            <Description>Crystal Reports File</Description>
+            <Files>
+                <File>
+                    <Path>Contents</Path>
+                </File>
+					 <File>
+                    <Path>SummaryInformation</Path>
+                    <BinarySignatures>
+                        <InternalSignatureCollection>                    
+	                        <InternalSignature ID="300">
+	                            <ByteSequence Reference="BOFoffset">
+	                                <SubSequence Position="1" SubSeqMinOffset="0" SubSeqMaxOffset="2048">
+	                                    <Sequence>'Crystal Reports'</Sequence>
+	                                </SubSequence>
+	                            </ByteSequence>
+	                        </InternalSignature>
+	                    </InternalSignatureCollection>
+                    </BinarySignatures>
+                </File>            
+            </Files>
+        </ContainerSignature>     
+        <ContainerSignature Id="60001" ContainerType="OLE2">
+            <Description>Crystal Reports File</Description>
+            <Files>
+                <File>
+                    <Path>Contents</Path>
+                </File>
+                <File>
+                    <Path>SummaryInformation</Path>
+                    <BinarySignatures>
+                        <InternalSignatureCollection>                    
+                            <InternalSignature ID="300">
+                                <ByteSequence Reference="BOFoffset">
+                                    <SubSequence Position="1" SubSeqMinOffset="0" SubSeqMaxOffset="2048">
+                                        <Sequence>'C'00 'r'00 'y'00 's'00 't'00 'a'00 'l'00 ' '00 'R'00 'e'00 'p'00 'o'00 'r'00 't'00 's'00</Sequence>
+                                    </SubSequence>
+                                </ByteSequence>
+                            </InternalSignature>
+                        </InternalSignatureCollection>
+                    </BinarySignatures>
+                </File>            
+            </Files>
+        </ContainerSignature>
   </ContainerSignatures>
+
 
   <FileFormatMappings>
     <!--  Microsoft Word 6.0/95 (OLE2)-->
@@ -6482,6 +6567,16 @@
 
     <!--  ISDOCX Information System Document (version 6.0.1) (ZIP)-->
     <FileFormatMapping signatureId="58000" Puid="fmt/1571"/>
+
+    <!--  Roxio Label Creator Project File v4-5 (OLE2)-->
+    <FileFormatMapping signatureId="59000" Puid="fmt/1644"/>
+
+    <!--  Roxio Label Creator Project File v6-7 (OLE2)-->
+    <FileFormatMapping signatureId="59010" Puid="fmt/1645"/>
+	
+	<!--  Crystal Reports File (OLE2)-->
+    <FileFormatMapping signatureId="60000" Puid="fmt/1648"/>
+	<FileFormatMapping signatureId="60001" Puid="fmt/1648"/>
 
   </FileFormatMappings>
 
