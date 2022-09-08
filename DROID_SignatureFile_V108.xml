@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<<< HEAD:DROID_SignatureFile_V108.xml
 <FFSignatureFile DateCreated="2022-09-05T13:40:20" Version="108" xmlns="http://www.nationalarchives.gov.uk/pronom/SignatureFile">
+========
+<FFSignatureFile DateCreated="2022-07-21T11:50:18" Version="107" xmlns="http://www.nationalarchives.gov.uk/pronom/SignatureFile">
+>>>>>>>> fb57a2637e7144ea920f9a7ff24ce494a9320639:DROID_SignatureFile_V107.xml
     <InternalSignatureCollection>
         <InternalSignature ID="9" Specificity="Specific">
             <ByteSequence Reference="BOFoffset">
@@ -46495,6 +46499,7 @@
         </InternalSignature>
         <InternalSignature ID="2063" Specificity="Specific">
             <ByteSequence Reference="BOFoffset">
+<<<<<<<< HEAD:DROID_SignatureFile_V108.xml
                 <SubSequence MinFragLength="0" Position="1"
                     SubSeqMaxOffset="0" SubSeqMinOffset="0">
                     <Sequence>0330303130313131313030313031303131</Sequence>
@@ -46503,6 +46508,29 @@
                     <Shift Byte="30">3</Shift>
                     <Shift Byte="31">1</Shift>
                     <RightFragment MaxOffset="3" MinOffset="3" Position="1">5A010004</RightFragment>
+========
+                <SubSequence MinFragLength="43" Position="1"
+                    SubSeqMaxOffset="88" SubSeqMinOffset="44">
+                    <Sequence>0052656C65617365001600000050726F20546F6F6C732053657373696F6E2046696C65</Sequence>
+                    <DefaultShift>36</DefaultShift>
+                    <Shift Byte="00">23</Shift>
+                    <Shift Byte="16">26</Shift>
+                    <Shift Byte="20">5</Shift>
+                    <Shift Byte="46">4</Shift>
+                    <Shift Byte="50">22</Shift>
+                    <Shift Byte="52">34</Shift>
+                    <Shift Byte="53">12</Shift>
+                    <Shift Byte="54">18</Shift>
+                    <Shift Byte="61">30</Shift>
+                    <Shift Byte="65">1</Shift>
+                    <Shift Byte="69">3</Shift>
+                    <Shift Byte="6C">2</Shift>
+                    <Shift Byte="6E">6</Shift>
+                    <Shift Byte="6F">7</Shift>
+                    <Shift Byte="72">21</Shift>
+                    <Shift Byte="73">9</Shift>
+                    <LeftFragment MaxOffset="29" MinOffset="29" Position="1">0050726F20546F6F6C7320484403</LeftFragment>
+>>>>>>>> fb57a2637e7144ea920f9a7ff24ce494a9320639:DROID_SignatureFile_V107.xml
                 </SubSequence>
             </ByteSequence>
         </InternalSignature>
@@ -46614,7 +46642,11 @@
                     <Shift Byte="73">9</Shift>
                     <Shift Byte="74">46</Shift>
                     <Shift Byte="78">55</Shift>
+<<<<<<<< HEAD:DROID_SignatureFile_V108.xml
                     <LeftFragment MaxOffset="1024" MinOffset="0" Position="1">3C616B6F6D614E746F736F20</LeftFragment>
+========
+                    <LeftFragment MaxOffset="1024" MinOffset="0" Position="1"> 3C616B6F6D614E746F736F20</LeftFragment>
+>>>>>>>> fb57a2637e7144ea920f9a7ff24ce494a9320639:DROID_SignatureFile_V107.xml
                     <LeftFragment MaxOffset="1024" MinOffset="0" Position="2">22</LeftFragment>
                     <LeftFragment MaxOffset="1024" MinOffset="0" Position="2">27</LeftFragment>
                     <LeftFragment MaxOffset="0" MinOffset="0" Position="3">312E30</LeftFragment>
@@ -46681,6 +46713,7 @@
                 </SubSequence>
             </ByteSequence>
         </InternalSignature>
+<<<<<<<< HEAD:DROID_SignatureFile_V108.xml
         <InternalSignature ID="2073" Specificity="Specific">
             <ByteSequence Reference="BOFoffset">
                 <SubSequence MinFragLength="0" Position="1"
@@ -47269,6 +47302,8 @@
                 </SubSequence>
             </ByteSequence>
         </InternalSignature>
+========
+>>>>>>>> fb57a2637e7144ea920f9a7ff24ce494a9320639:DROID_SignatureFile_V107.xml
     </InternalSignatureCollection>
     <FileFormatCollection>
         <FileFormat ID="8" MIMEType="application/msword"
@@ -58780,6 +58815,7 @@
             <InternalSignatureID>2072</InternalSignatureID>
             <Extension>pgc</Extension>
         </FileFormat>
+<<<<<<<< HEAD:DROID_SignatureFile_V108.xml
         <FileFormat ID="2580" Name="C/C++ Header File" PUID="fmt/1735">
             <Extension>h</Extension>
             <Extension>hpp</Extension>
@@ -58956,5 +58992,7 @@
             <InternalSignatureID>2106</InternalSignatureID>
             <Extension>sml</Extension>
         </FileFormat>
+========
+>>>>>>>> fb57a2637e7144ea920f9a7ff24ce494a9320639:DROID_SignatureFile_V107.xml
     </FileFormatCollection>
 </FFSignatureFile>
