@@ -34,7 +34,7 @@ jobs:
       - run: mkdir -p skeleton-test-suite-generator/pronom-export/{fmt,x-fmt}
       - run: cp pronom/fmt* skeleton-test-suite-generator/pronom-export/fmt/
       - run: cp pronom/x-fmt* skeleton-test-suite-generator/pronom-export/x-fmt/
-      - run: ( cd skeleton-test-suite-generator && python2 skeletongenerator.py ) 
+      - run: ( cd skeleton-test-suite-generator && python skeletongenerator.py ) 
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/fmt output/skeleton-suite/
       - run: cp -rf skeleton-test-suite-generator/skeleton-suite/x-fmt output/skeleton-suite/
       - run: cp ${{ env.CONTAINER }} skeleton-container-test-suite-generator/
