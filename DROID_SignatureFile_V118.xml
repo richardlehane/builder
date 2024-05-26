@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
 <FFSignatureFile DateCreated="2024-04-29T13:46:04" Version="118" xmlns="http://www.nationalarchives.gov.uk/pronom/SignatureFile">
+========
+<FFSignatureFile DateCreated="2023-11-16T14:45:29" Version="116" xmlns="http://www.nationalarchives.gov.uk/pronom/SignatureFile">
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
     <InternalSignatureCollection>
         <InternalSignature ID="9" Specificity="Specific">
             <ByteSequence Reference="BOFoffset">
@@ -17496,6 +17500,25 @@
                 </SubSequence>
             </ByteSequence>
         </InternalSignature>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
+========
+        <InternalSignature ID="691" Specificity="Specific">
+            <ByteSequence Reference="BOFoffset">
+                <SubSequence MinFragLength="4" Position="1"
+                    SubSeqMaxOffset="0" SubSeqMinOffset="0">
+                    <Sequence>6674797071742020</Sequence>
+                    <DefaultShift>9</DefaultShift>
+                    <Shift Byte="20">1</Shift>
+                    <Shift Byte="66">8</Shift>
+                    <Shift Byte="70">5</Shift>
+                    <Shift Byte="71">4</Shift>
+                    <Shift Byte="74">3</Shift>
+                    <Shift Byte="79">6</Shift>
+                    <LeftFragment MaxOffset="1" MinOffset="1" Position="1">000000</LeftFragment>
+                </SubSequence>
+            </ByteSequence>
+        </InternalSignature>
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
         <InternalSignature ID="692" Specificity="Specific">
             <ByteSequence Reference="BOFoffset">
                 <SubSequence MinFragLength="0" Position="1"
@@ -51429,6 +51452,7 @@
             <ByteSequence Reference="BOFoffset">
                 <SubSequence MinFragLength="4" Position="1"
                     SubSeqMaxOffset="0" SubSeqMinOffset="0">
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
                     <Sequence>12C60100040000000107</Sequence>
                     <DefaultShift>11</DefaultShift>
                     <Shift Byte="00">3</Shift>
@@ -51437,6 +51461,16 @@
                     <Shift Byte="07">1</Shift>
                     <Shift Byte="12">10</Shift>
                     <Shift Byte="C6">9</Shift>
+========
+                    <Sequence>12C601000400000001070000</Sequence>
+                    <DefaultShift>13</DefaultShift>
+                    <Shift Byte="00">1</Shift>
+                    <Shift Byte="01">4</Shift>
+                    <Shift Byte="04">8</Shift>
+                    <Shift Byte="07">3</Shift>
+                    <Shift Byte="12">12</Shift>
+                    <Shift Byte="C6">11</Shift>
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
                     <LeftFragment MaxOffset="4080" MinOffset="0" Position="1">49492A00</LeftFragment>
                 </SubSequence>
             </ByteSequence>
@@ -51445,6 +51479,7 @@
             <ByteSequence Reference="BOFoffset">
                 <SubSequence MinFragLength="4" Position="1"
                     SubSeqMaxOffset="0" SubSeqMinOffset="0">
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
                     <Sequence>C6120001000000040107</Sequence>
                     <DefaultShift>11</DefaultShift>
                     <Shift Byte="00">4</Shift>
@@ -51453,6 +51488,16 @@
                     <Shift Byte="07">1</Shift>
                     <Shift Byte="12">9</Shift>
                     <Shift Byte="C6">10</Shift>
+========
+                    <Sequence>C61200010000000401070000</Sequence>
+                    <DefaultShift>13</DefaultShift>
+                    <Shift Byte="00">1</Shift>
+                    <Shift Byte="01">4</Shift>
+                    <Shift Byte="04">5</Shift>
+                    <Shift Byte="07">3</Shift>
+                    <Shift Byte="12">11</Shift>
+                    <Shift Byte="C6">12</Shift>
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
                     <LeftFragment MaxOffset="4080" MinOffset="0" Position="1">4D4D002A</LeftFragment>
                 </SubSequence>
             </ByteSequence>
@@ -51471,8 +51516,13 @@
             <ByteSequence Reference="EOFoffset">
                 <SubSequence MinFragLength="0" Position="1"
                     SubSeqMaxOffset="128000" SubSeqMinOffset="0">
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
                     <Sequence>12C60100040000000107</Sequence>
                     <DefaultShift>-11</DefaultShift>
+========
+                    <Sequence>12C601000400000001070000</Sequence>
+                    <DefaultShift>-13</DefaultShift>
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
                     <Shift Byte="00">-4</Shift>
                     <Shift Byte="01">-3</Shift>
                     <Shift Byte="04">-5</Shift>
@@ -51496,8 +51546,13 @@
             <ByteSequence Reference="EOFoffset">
                 <SubSequence MinFragLength="0" Position="1"
                     SubSeqMaxOffset="128000" SubSeqMinOffset="0">
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
                     <Sequence>C6120001000000040107</Sequence>
                     <DefaultShift>-11</DefaultShift>
+========
+                    <Sequence>C61200010000000401070000</Sequence>
+                    <DefaultShift>-13</DefaultShift>
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
                     <Shift Byte="00">-3</Shift>
                     <Shift Byte="01">-4</Shift>
                     <Shift Byte="04">-8</Shift>
@@ -51507,6 +51562,7 @@
                 </SubSequence>
             </ByteSequence>
         </InternalSignature>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
         <InternalSignature ID="2290" Specificity="Specific">
             <ByteSequence Reference="BOFoffset">
                 <SubSequence MinFragLength="164" Position="1"
@@ -52899,6 +52955,8 @@
                 </SubSequence>
             </ByteSequence>
         </InternalSignature>
+========
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
     </InternalSignatureCollection>
     <FileFormatCollection>
         <FileFormat ID="8" MIMEType="application/msword"
@@ -58423,19 +58481,31 @@
             <Extension>pdf</Extension>
             <HasPriorityOverFileFormatID>618</HasPriorityOverFileFormatID>
         </FileFormat>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
         <FileFormat ID="1354" MIMEType="image/webp" Name="WebP"
+========
+        <FileFormat ID="1354" MIMEType="webp/image" Name="WebP"
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
             PUID="fmt/566" Version="Lossy">
             <InternalSignatureID>902</InternalSignatureID>
             <Extension>webp</Extension>
             <HasPriorityOverFileFormatID>2741</HasPriorityOverFileFormatID>
         </FileFormat>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
         <FileFormat ID="1355" MIMEType="image/webp" Name="WebP"
+========
+        <FileFormat ID="1355" MIMEType="webp/image" Name="WebP"
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
             PUID="fmt/567" Version="Lossless">
             <InternalSignatureID>903</InternalSignatureID>
             <Extension>webp</Extension>
             <HasPriorityOverFileFormatID>2741</HasPriorityOverFileFormatID>
         </FileFormat>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
         <FileFormat ID="1356" MIMEType="image/webp" Name="WebP"
+========
+        <FileFormat ID="1356" MIMEType="webp/image" Name="WebP"
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
             PUID="fmt/568" Version="Extended">
             <InternalSignatureID>904</InternalSignatureID>
             <Extension>webp</Extension>
@@ -65241,7 +65311,10 @@
         <FileFormat ID="2731" Name="GST Art File" PUID="fmt/1877" Version="1">
             <InternalSignatureID>2219</InternalSignatureID>
             <Extension>art</Extension>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
             <HasPriorityOverFileFormatID>687</HasPriorityOverFileFormatID>
+========
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
         </FileFormat>
         <FileFormat ID="2732" Name="GST Art File" PUID="fmt/1878" Version="2">
             <Extension>art</Extension>
@@ -65411,7 +65484,11 @@
             <Extension>pdf</Extension>
             <HasPriorityOverFileFormatID>1939</HasPriorityOverFileFormatID>
         </FileFormat>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
         <FileFormat ID="2767" MIMEType="application/pdf"
+========
+        <FileFormat ID="2767" MIMEType="appliction/pdf"
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
             Name="Acrobat PDF/A - Portable Document Format"
             PUID="fmt/1911" Version="4e">
             <InternalSignatureID>2257</InternalSignatureID>
@@ -65541,7 +65618,11 @@
             <HasPriorityOverFileFormatID>1144</HasPriorityOverFileFormatID>
         </FileFormat>
         <FileFormat ID="2799" MIMEType="application/vnd.lotus-screencam"
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
             Name="Lotus Screencam Data File" PUID="fmt/1938" Version="3.0-3.1">
+========
+            Name="Lotus Screencam Data File" PUID="fmt/1938" Version="3.0, 3.1">
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
             <InternalSignatureID>2279</InternalSignatureID>
             <Extension>scm</Extension>
         </FileFormat>
@@ -65593,6 +65674,7 @@
             <InternalSignatureID>687</InternalSignatureID>
             <Extension>cf2</Extension>
         </FileFormat>
+<<<<<<<< HEAD:DROID_SignatureFile_V118.xml
         <FileFormat ID="2808" Name="Draw.io Diagram (XML) File" PUID="fmt/1946">
             <InternalSignatureID>2291</InternalSignatureID>
             <Extension>drawio</Extension>
@@ -65913,5 +65995,7 @@
             Name="Compressed MusicXML" PUID="fmt/2005" Version="3.1+">
             <Extension>mxl</Extension>
         </FileFormat>
+========
+>>>>>>>> 316d298c077f6604c1bec30e8a195466b4e44ac2:DROID_SignatureFile_V116.xml
     </FileFormatCollection>
 </FFSignatureFile>
