@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - run: echo "CONTAINER=$(find container* -type f -printf "%f")" >> $GITHUB_ENV
       - run: echo "DROID=$(find DROID* -type f -printf "%f")" >> $GITHUB_ENV
       - name: Install Jython
